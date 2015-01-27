@@ -1,0 +1,3 @@
+Using scala to run mapreduce has two advantages:
+1. Scala code is more succinct than write code in java in mapreduce job.All the subwork can be done in one line with method. 
+2. Running spark if faster than the hadoop mapreduce.

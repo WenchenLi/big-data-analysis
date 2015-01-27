@@ -1,0 +1,11 @@
+bigrams = LOAD 's3://cse6242-bigram-big/*' AS (bigram:chararray, year:int, count:float, books:float);
+
+grpb = GROUP bigrams BY bigram;
+
+avergs = FOREACH grpb GENERATE group, SUM(bigrams.count)/SUM(bigrams.books) AS averg;
+
+orders = ORDER avergs BY averg DESC, group ASC;
+
+orderslmt = LIMIT orders 10;
+
+STORE orderslmt INTO 's3://cse6242-gt-wenchenli/output_big/';

@@ -1,0 +1,2 @@
+In map, for each row, I first map 3 columns to 2 columns with target node id and its weight and then pass this new pair to context to let reduce funtion to fetch. 
+In reduce, for each target node I combine all the weights corresponding to the node and give the output uniquely for each (node,weight) pair.
